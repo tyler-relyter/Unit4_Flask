@@ -71,17 +71,39 @@
                             <input class="form-check-input" type="radio" name="Cape" value="Tideturner" id="cape4">
                             <label class="form-check-label" for="cape4">Tideturner</label>
                         </div>
-                        <!-- Add more cape options here -->
+                        
                     </div>
                 </div>
                 <div class="row text-center">
                     <h2>Your Character</h2>
-                    <div class="col" id="character">
+                    <div class="col" id="character"></div>
+                    <div class="col" id="character2">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Armor</th>
+                                    <th scope="col">Emote</th>
+                                    <th scope="col">Cape</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in data %}
+                                <tr>
+                                    <td id="armor_choice">{{ row[0] }}</td>
+                                    <td id="emote_choice">{{ row[1] }}</td>
+                                    <td id="cape_choice">{{ row[2] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                    </div>
                 </div>
                 <div class="row">
-                    <button class="btn btn-primary" id="submit">Submit</button>
+                    <button class="btn btn-success" id="submit">Submit</button>
                 </div>
             </form>
+            <div class="row">
+                <a href="/loadout"><button class="btn btn-primary">Choose Loadout</button></a>
+            </div>
         </div>
     </main>
     <script src="{{ url_for('static', filename='js/character.js') }}"></script>
